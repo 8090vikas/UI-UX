@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unsplash API</title>
+</head>
+<body>
+  <div class="search-container">
+    <h1>Unsplash Search</h1>
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Search Photos...">
+    <button (click)="searchPhotos()">Search</button>
+  </div>
+  
+  <div class="results-container">
+    <div *ngIf="photos.length === 0 && searchCompleted">No photos found. Try a different search term.</div>
+    <div class="photo-card" *ngFor="let photo of photos">
+      <img [src]="photo.urls.small" [alt]="photo.alt_description || 'Photo'">
+    </div>
+  </div>
+  
+</body>
+</html>
